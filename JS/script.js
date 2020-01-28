@@ -19,6 +19,20 @@ fetch('text.txt')
 function getUsers() {
     fetch('users.json')
     .then(res=>res.json())
+    .then((data)=> {
+        let output = '<h2>Users</h2>';
+        data.forEach(function(user) {
+
+            output+=
+            `<ul>
+                <li>ID: ${user.id}</li>
+                <li>NAME: ${user.name}</li>
+                <li>EMAIL: ${user.email}</li>
+            </ul>`
+        });
+
+        document.getElementById('output').innerHTML = output;
+    })
 }
 
 
